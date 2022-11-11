@@ -1,8 +1,7 @@
-const express = require('express');
-const notesRouter = require('./notes')
+const router = require('express').Router();
 
-const app = express();
+const notesRouter = require('./notes');
 
-app.use('/notes', notesRouter);
+router.use('/notes', notesRouter);
 
-module.exports = app
+module.exports = router;

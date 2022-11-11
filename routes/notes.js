@@ -7,12 +7,25 @@ const {
 } = require('../helpers/fsUtils');
 
 // get route for retrieving all notes
-notes.get('/api/notes', (req, res) => {
+notes.get('/', (req, res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
+// get route for specific note
+notes.get('/:id', (req, res) => {
+    const noteId = req.params.id;
+    readFromFile('./db/db.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+        const result = json.filter((note) => note.id === noteId);
+        return result.length > 0
+        ? res.json(result)
+        : res.json('Note not found');
+    });
+});
+
 // delete route for a specific note
-notes.delete('/api/notes/:id', (req, res) => {
+notes.delete('/:id', (req, res) => {
     const noteId = req.params.id;
     readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
@@ -26,7 +39,7 @@ notes.delete('/api/notes/:id', (req, res) => {
 });
 
 // post route for a new note
-notes.post('/api/notes', (req, res) => {
+notes.post('/', (req, res) => {
     console.log(req.body);
     const {
         title,
