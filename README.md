@@ -36,7 +36,7 @@ ___
 <div id="instructions"></div>
 
 ## **How to Use Note Taker**
-Visit  https://git.heroku.com/hidden-harbor-93099.git and click get started to begin writing your first note.
+Visit  https://hidden-harbor-93099.herokuapp.com/ and click get started to begin writing your first note.
 
 ___
 
@@ -50,7 +50,7 @@ ___
 <div id="link"></div>
 
 ## **Link to Application**
-* https://git.heroku.com/hidden-harbor-93099.git
+* https://hidden-harbor-93099.herokuapp.com/
 
 ___
 
